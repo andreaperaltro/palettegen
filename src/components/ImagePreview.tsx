@@ -67,35 +67,6 @@ const PlaceholderIcon = styled.div`
   color: #000;
 `;
 
-const PreviewInfo = styled.div`
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-family: monospace;
-`;
-
-const InfoItem = styled.div`
-  display: flex;
-  justify-content: space-between;
-  font-size: 14px;
-  border-bottom: 1px solid #000;
-  padding-bottom: 5px;
-  
-  &:last-child {
-    border-bottom: none;
-  }
-`;
-
-const Label = styled.span`
-  font-weight: bold;
-  text-transform: uppercase;
-`;
-
-const Value = styled.span`
-  font-family: monospace;
-`;
-
 // Simplified ImagePreview that doesn't show loading
 const ImagePreview: React.FC<ImagePreviewProps> = ({ imageUrl }) => {
   return (

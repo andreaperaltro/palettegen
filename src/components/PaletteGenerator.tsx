@@ -11,17 +11,25 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 20px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
   background-color: #f0f0f0;
-  border: 4px solid #000;
+  border: 0;
+  
+  @media (min-width: 1440px) {
+    padding: 0 20px;
+  }
 `;
 
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  padding: 0 20px;
+  max-width: 1400px;
+  margin: 0 auto;
   
   @media (min-width: 1024px) {
     flex-direction: row;
@@ -53,14 +61,6 @@ const RightColumn = styled.div`
   }
 `;
 
-const FullWidthSection = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-`;
-
 const Header = styled.header`
   text-align: center;
   margin-bottom: 30px;
@@ -68,7 +68,7 @@ const Header = styled.header`
   background-color: #000;
   color: #fff;
   padding: 20px;
-  border-bottom: 4px solid #000;
+  border: 0;
 `;
 
 const Title = styled.h1`
@@ -114,9 +114,10 @@ const Footer = styled.footer`
   font-size: 0.9rem;
   line-height: 1.5;
   padding: 20px;
-  border-top: 4px solid #000;
+  border-top: 0;
   width: 100%;
-  background-color: #ddd;
+  background-color: #000;
+  color: #fff;
   font-family: monospace;
 `;
 
@@ -198,7 +199,6 @@ const PaletteGenerator: React.FC = () => {
   const [colorFormat, setColorFormat] = useState<ColorFormat>('hex');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [updateTrigger, setUpdateTrigger] = useState(0);
   
   // Update the state ref when these values change
   useEffect(() => {
@@ -216,7 +216,7 @@ const PaletteGenerator: React.FC = () => {
   // Load random image on initial component mount
   useEffect(() => {
     loadRandomImage();
-  }, []);
+  }, []);  // eslint-disable-line react-hooks/exhaustive-deps
   
   // Extract colors from the image with given count
   const extractColors = async (img: HTMLImageElement, count: number) => {

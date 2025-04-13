@@ -15,13 +15,24 @@ const GlobalStyle = createGlobalStyle`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #f9f9f9;
+    background-color: #000;
     color: #333;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
   }
 
   code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
+  }
+
+  html, body, #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
   }
 `;
 
