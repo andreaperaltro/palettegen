@@ -12,7 +12,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
   background-color: #f0f0f0;
@@ -28,8 +28,10 @@ const ContentWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   padding: 0 20px;
+  box-sizing: border-box;
   max-width: 1400px;
   margin: 0 auto;
+  flex: 1;
   
   @media (min-width: 1024px) {
     flex-direction: row;
@@ -110,7 +112,6 @@ const ErrorMessage = styled.div`
 const Footer = styled.footer`
   margin-top: 40px;
   text-align: center;
-  color: #000;
   font-size: 0.9rem;
   line-height: 1.5;
   padding: 20px;

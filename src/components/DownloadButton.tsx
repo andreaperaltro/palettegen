@@ -13,6 +13,10 @@ const ButtonsContainer = styled.div`
   justify-content: center;
   margin: 20px 0;
   width: 100%;
+  background-color: #eee;
+  padding: 15px;
+  border: 3px solid #000;
+  box-sizing: border-box;
   
   @media (max-width: 500px) {
     flex-direction: column;
@@ -21,8 +25,8 @@ const ButtonsContainer = styled.div`
 `;
 
 const Button = styled.button`
-  background-color: #000;
-  color: white;
+  background-color: #fff;
+  color: #000;
   border: 3px solid #000;
   border-radius: 0;
   padding: 12px 20px;
@@ -36,10 +40,26 @@ const Button = styled.button`
   justify-content: center;
   transition: background-color 0.2s, color 0.2s;
   width: 100%;
+  max-width: 300px;
+  position: relative;
+  
+  &:after {
+    content: "→";
+    position: absolute;
+    right: 15px;
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+  }
   
   &:hover {
-    background-color: #fff;
-    color: #000;
+    background-color: #000;
+    color: #fff;
+    padding-right: 35px;
+    
+    &:after {
+      opacity: 1;
+      transform: translateX(5px);
+    }
   }
   
   &:active {
@@ -47,10 +67,18 @@ const Button = styled.button`
   }
   
   &:disabled {
-    background-color: #aaa;
-    border-color: #aaa;
-    color: #eee;
+    background-color: #ddd;
+    border-color: #999;
+    color: #999;
     cursor: not-allowed;
+    
+    &:hover {
+      padding-right: 20px;
+      
+      &:after {
+        opacity: 0;
+      }
+    }
   }
 `;
 
